@@ -22,12 +22,14 @@
 			let val = document.getElementById("input").value;
 			console.log(val);
 
-			location.href = "snssdk1128://microapp?app_id=tt40df3662dfe6177301&start_page=pages/index/index?name="+val;
+			let go_page = "pages/index/index?name="+val;
+
+			location.href = "snssdk1128://microapp?app_id=tt40df3662dfe6177301&start_page="+JSON.stringify(go_page);
 		}
 		function open_douyin_qwcys(){
-			location.href = "snssdk1128://microapp?app_id=ttff6d89d06057e4de&start_page=pages/ATpindex/problem_default?goodsid=303388&tid=1947822&token=cff9ffce4cde269a211db1fc5d6cf230-1947822-1646892202";
+			location.href = "snssdk1128://microapp?app_id=ttff6d89d06057e4de&start_page="+JSON.stringify("pages/ATpindex/problem_default?goodsid=303388&tid=1947822&token=cff9ffce4cde269a211db1fc5d6cf230-1947822-1646892202");
 		}
-
+		// https://z.douyin.com/yKqj?scheme=snssdk1128://microapp?app_id=ttff6d89d06057e4de&start_page=pages/ATpindex/problem_default?goodsid=303388&tid=1947822&token=cff9ffce4cde269a211db1fc5d6cf230-1947822-1646892202
 	</script>
 </body>
 </html>
