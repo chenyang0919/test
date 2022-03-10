@@ -1,8 +1,28 @@
-<html>
-<head></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
 <body>
-    
-    <video src="https://gitee.com/cy96/test/raw/master/test.mp4" controls></video>
-</body>
 
+	<input type="text" id="input" value="默认的一个值">
+	<br/>
+	<br/>
+	<button onclick="open_douyin_xcx()">点击跳转抖音小程序,并附带参数name，值为输入框内容</button>
+
+	<script>
+
+		function open_douyin_xcx(){
+			let val = document.getElementById("input").value;
+			console.log(val);
+
+			location.href = "snssdk1128://microapp?app_id=tt40df3662dfe6177301&start_page=pages/index/index?name="+val;
+		}
+
+
+	</script>
+</body>
 </html>
