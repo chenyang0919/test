@@ -17,9 +17,21 @@
 	<br/>
 	<br/>
 	<button onclick="open_douyin_qwcys()">点击跳转抖音小程序趣味创意社的大脑成熟度检测</button>
-
+<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
 	<script>
+	
+	  function setToken(token){
+		alert("setToken"+token);
+	    }
 
+	    document.addEventListener('UniAppJSBridgeReady', function() {
+		uni.postMessage({
+			data:{
+				type:"ready"
+			}
+		});
+	    });
+		
 		function open_douyin_xcx(){
 			let val = document.getElementById("input").value;
 			console.log(val);
