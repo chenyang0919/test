@@ -1,0 +1,16 @@
+{
+    "name":"Todo PWA",
+    "short_name":"ToDo",
+    "icons":[
+        {
+            "src":"icon-100.png",
+            "sizes":"100x100",
+            "type":"image/png"
+        }
+       
+    ],
+    "theme_color":"#FFFFFF",
+    "background_color":"#FFFFFF",
+    "start_url":"/PWA-Todo/",
+    "display":"standalone"
+}
