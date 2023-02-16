@@ -1,19 +1,16 @@
-
-
 {
-    "name": "webname webname webname",
-    "short_name": "webname",
-    "display": "standalone",
-    "start_url": "/index.html",
-    "theme_color": "#3E3A39",
-    "background_color": "#3E3A39",
-    "description":"",
-    "orientation":"any",
-    "scope":"/",
+    "name": "人声分离",
+    "short_name": "人声分离",
+    "description": "人声分离服务主要利用人工智能分离技术在线提取音乐中的伴奏、人声、和声、乐器音轨、人声消除等，并可对视频进行音轨分离服务。",
     "icons": [
-    {
+      {
         "src": "icon-100.png",
-        "sizes": "256x256",
+        "sizes": "100x100",
         "type": "image/png"
-    }]
-}
+      }
+    ],
+    "start_url": "index.html?from=shortcut",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff"
+  }
