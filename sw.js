@@ -1,7 +1,7 @@
 // sw.js文件
 var cacheName = 'todolist-v1';
 var allFiles = [
-  '/todolist-pwa/icons/edit.png',
+  'icon-100.png',
 ];
 
 self.addEventListener('install', function (e) {
