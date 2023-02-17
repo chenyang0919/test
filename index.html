@@ -51,7 +51,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt = e;
   // 更新 UI 以提醒用户可以将 App 安装到桌面
  console.log("546");
-
+addBtn.style.display = 'block';
   addBtn.addEventListener('click', (e) => {
     // 隐藏显示 A2HS 按钮的界面
     addBtn.style.display = 'none';
