@@ -50,13 +50,14 @@ function 主程序() {
 
 
     }
-
+    console.info("主程序入口")
 
     //以上通用不用改=========================================================================================
     let app记录 = storage.get("app")
     let 模式 = storage.get(app记录 + "子选项", 0)
     app记录 = "知聊"
     if (app记录 == "知聊") {
+        console.info("知聊 分支")
         知聊(模式)
     } else if (app记录 == "知友语聊") {
         知友语聊(模式)
@@ -64,67 +65,7 @@ function 主程序() {
 
 }
 function fanA() {
-    let server_data = server_cdk_yanZhenavigator()
-    // console.log(server_data);
-    if (HexMd5(device.getAndroidId() + "&" + storage.get("CDK") + "&" + server_data.timestamp + "nimso@SCc") != server_data.sign) {
-        storage.put("oldNeedle", false);
-        while (true) {
-            toastLog("检测疑似盗版,限制使用!请关机重启再试!请一定使用正版,才有保障!谢谢支持,祝您发财")
-            dialogs.build({
-                title: "检测疑似盗版,限制使用!请关机重启再试!请一定使用正版,才有保障!谢谢支持,祝您发财",
-                progress: {
-                    max: -1
-                },
-                cancelable: false
-            }).show();
-            sleep(1000)
-            alert("检测疑似盗版,限制使用!请关机重启再试!请一定使用正版,才有保障!谢谢支持,祝您发财")
-            sleep(1000)
-        }
-        exit()
-    }
-    function server_cdk_yanZhenavigator() {
-        while (true) {
-            try {
-                let res = http.postJson("http://api.gaoshanzs.com/api/card/check", {
-                    "device_id": device.getAndroidId(),
-                    "card": storage.get("CDK")
-                })
-                let res_json = res.body.json()
-                if (res_json.msg === "验证通过") {
-                    return res_json.data
-                } else if (res_json.msg === "破解死全家") {
-                    storage.put("oldNeedle", false);
-                    while (true) {
-                        toastLog("检测疑似盗版,限制使用!请关机重启再试!请一定使用正版,才有保障!谢谢支持,祝您发财.")
-                        dialogs.build({
-                            title: "检测疑似盗版,限制使用!请关机重启再试!请一定使用正版,才有保障!谢谢支持,祝您发财.",
-                            progress: {
-                                max: -1
-                            },
-                            cancelable: false
-                        }).show();
-                        sleep(1000)
-                        alert("检测疑似盗版,限制使用!请关机重启再试!请一定使用正版,才有保障!谢谢支持,祝您发财.")
-                        sleep(1000)
-                    }
-                    exit()
-                } else if (res_json.msg === "破解死全家2") {
-                    storage.put("oldNeedle", false);
-                    while (true) {
-                        console.error("多开限制使用，请联系作者")
-                        alert("多开限制使用，请联系作者")
-                    }
-                    exit()
-                } else {
-                    console.error("...")
-                }
-            } catch (e) {
-                console.error("..." + e)
-            }
-            sleep(30000)
-        }
-    }
+   
 }
 
 function 知友语聊(模式) {
@@ -185,14 +126,18 @@ function 知聊启动app() {
     if (currentPackage() == "com.yyk.knowchat") {
         //正在运行的应用的包名
         toastLog("继续")
+        console.info("继续");
     } else {
+        console.info("知聊没有启动,正在尝试重新启动");
         toast("知聊没有启动,正在尝试重新启动")
         app.launchPackage("com.yyk.knowchat")
         sleep(5000)
         if (currentPackage() == "com.yyk.knowchat") {
             toast("启动成功")
+            console.info("启动成功");
         } else {
             toast("启动失败,正在尝试重新启动")
+            console.info("启动失败,正在尝试重新启动");
             sleep(3000)
         }
     }
@@ -263,6 +208,7 @@ function 知聊活跃() {
                     知聊自动接听()
                     var nodd = id("fl_provide_card_root").findOnce()
                     if (nodd) {
+                        console.info("nodd.............")
                         toastLog("...")
                     } else {
                         sleep(1000)
@@ -374,6 +320,7 @@ function 知聊交友() {
                     知聊自动接听()
                     var nodd = id("fl_main_menu_dynamic").findOnce()
                     if (nodd) {
+                        console.info("循环遍历每一个头像 nodd.............")
                         toastLog("...")
                     } else {
                         sleep(1000)
@@ -1004,6 +951,7 @@ function 知聊返回() {
             sleep(1000)
         }
     } else {
+        console.info("知聊返回");
         console.error("...")
     }
 
@@ -1595,6 +1543,7 @@ function 悬浮窗() {
         return true;
     });
     window.start.click(() => {
+        console.info("点击了开始")
         if (初始状态 != 0) {
             初始状态 = 0
             window.start.attr("src", "ic_play_circle_outline_black_48dp");
