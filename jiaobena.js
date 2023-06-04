@@ -943,17 +943,17 @@ function 知聊VIP() {
 
 
 function 知聊返回() {
-    let ress_jsons = res.body.json()
-    if (ress_jsons.msg === "验证通过") {
+    // let ress_jsons = res.body.json()
+    // if (ress_jsons.msg === "验证通过") {
         if (id("etInput").findOnce() || id("iv_home_close").findOnce() || id("faq_img").findOnce() || id("fl_home_close").findOnce() || id("iv_back").findOnce() || text("评价").findOnce() || textContains("通话结束").findOnce() || text("提醒").visibleToUser().findOnce() || text("我的资料").findOnce()) {
             toastLog("返回")
             back()
             sleep(1000)
         }
-    } else {
-        console.info("知聊返回");
-        console.error("...")
-    }
+    // } else {
+    //     console.info("知聊返回");
+    //     console.error("...")
+    // }
 
 }
 function 知聊返回2() {
@@ -1641,30 +1641,30 @@ function 消息红点点击(节点) {
 
 function CDKLogin() {
 
-    var logoutResult = LogoutNeedle();
-    console.log("退出登陆" + logoutResult[1]);
-    var CDK = storage.get("CDK");
-    var loginResult = SendQLRequest(
-        "apiv3/card_login",
-        "card=" + CDK + "&software=" + MISdasgsgd
-    );
-    if (loginResult[0]) {
-        var successData = loginResult[1];
-        // var endTime = successData["endtime"];
-        // var lessTime = successData["less_time"];
-        var needle = successData["needle"];
-        PutSt("oldNeedle", needle); //存储本次 的Needle
-        console.log(needle + "登陆成功");
-        threads.start(function () {
-            SendHeartbeat(needle);
-        });
-        // return [true, needle, lessTime];
-    } else {
-        var failResult = loginResult[1];
-        alert("卡密验证失败:" + failResult)
-        exit()
-        // return [false, failResult];
-    }
+    // var logoutResult = LogoutNeedle();
+    // console.log("退出登陆" + logoutResult[1]);
+    // var CDK = storage.get("CDK");
+    // var loginResult = SendQLRequest(
+    //     "apiv3/card_login",
+    //     "card=" + CDK + "&software=" + MISdasgsgd
+    // );
+    // if (loginResult[0]) {
+    //     var successData = loginResult[1];
+    //     // var endTime = successData["endtime"];
+    //     // var lessTime = successData["less_time"];
+    //     var needle = successData["needle"];
+    //     PutSt("oldNeedle", needle); //存储本次 的Needle
+    //     console.log(needle + "登陆成功");
+    //     threads.start(function () {
+    //         SendHeartbeat(needle);
+    //     });
+    //     // return [true, needle, lessTime];
+    // } else {
+    //     var failResult = loginResult[1];
+    //     alert("卡密验证失败:" + failResult)
+    //     exit()
+    //     // return [false, failResult];
+    // }
 }
 
 /**
